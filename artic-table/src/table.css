@@ -1,0 +1,296 @@
+/*  PAGE BASE  */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fafbfc;
+  padding: 6px 0 0 6px;
+  overflow: hidden;
+}
+/*  TABLE BOX  */
+.assignment-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #eaecf0ef;
+  border-radius: 12px;
+  background: #ffffffd3;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06),
+              0 8px 20px rgba(0,0,0,.05);
+}
+.assignment-table .p-datatable-wrapper {
+  flex: 1;
+  overflow-y: auto;
+}
+/*  HEADER  */
+.assignment-table .p-datatable-thead > tr > th {
+  background: #f5f6f7;
+  font-size: 10px;
+  font-weight: 600;
+  color: #4b5563;
+
+  padding: 6px 16px;
+  height: 50px;
+}
+/*  BODY  */
+.assignment-table .p-datatable-tbody > tr > td {
+  font-size: 11px;
+  padding: 8px 18px;
+  height: 38px;
+  font-weight: 400;
+  color: #4b5563;
+}
+/* second column bold */
+.assignment-table .p-datatable-tbody > tr > td:nth-child(2) {
+  font-weight: 600;
+  color: #1f2937;
+}
+/* zebra */
+.assignment-table .p-datatable-tbody > tr:nth-child(even) {
+  background: #fafbfc;
+}
+/* hover */
+.assignment-table .p-datatable-tbody > tr:hover {
+  background: #eceef3 !important;
+}
+/*  PAGINATOR  */
+.assignment-table .p-paginator {
+  position: sticky;
+  bottom: 0;
+  background: #eeececa4;
+}
+/* page info text */
+.assignment-table .p-paginator-current {
+  font-size: 13px;
+  font-weight: 400;
+  color: #07080a;
+  margin-right: auto;
+  letter-spacing: .2px;
+  font-variant-numeric: tabular-nums;
+}
+.assignment-table .p-paginator-current strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+/* hide first & last */
+.assignment-table .p-paginator-first,
+.assignment-table .p-paginator-last {
+  display: none !important;
+}
+/* buttons */
+.assignment-table .p-paginator-page,
+.assignment-table .p-paginator-prev,
+.assignment-table .p-paginator-next {
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  font-size: 13px;
+}
+.assignment-table .p-paginator-page {
+  min-width: 34px;
+  margin: 0 3px;
+}
+.assignment-table .p-paginator-page.p-highlight {
+  background: #4f6bed;
+  border-color: #4f6bed;
+  color: #fff;
+}
+/* prev / next text */
+.assignment-table .p-paginator-prev,
+.assignment-table .p-paginator-next {
+  min-width: 70px;
+}
+.assignment-table .p-paginator-prev::after {
+  content: "Previous";
+}
+.assignment-table .p-paginator-next::after {
+  content: "Next";
+}
+.assignment-table .p-paginator-prev .p-paginator-icon,
+.assignment-table .p-paginator-next .p-paginator-icon {
+  display: none !important;
+}
+/* hover */
+.assignment-table .p-paginator-page:hover,
+.assignment-table .p-paginator-prev:hover,
+.assignment-table .p-paginator-next:hover {
+  background: #f4f6ff;
+  border-color: #1f57d1;
+  color: #1f57d1;
+}
+.assignment-table .p-disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+/*  CHECKBOX  */
+.assignment-table .p-checkbox {
+  width: 14px;
+  height: 14px;
+}
+.assignment-table .p-checkbox .p-checkbox-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1.5px solid #9ca3af;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.assignment-table .p-checkbox:not(.p-disabled) .p-checkbox-box:hover {
+  border-color: #2563eb;
+}
+.assignment-table .p-checkbox.p-highlight .p-checkbox-box {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+.assignment-table .p-checkbox .p-checkbox-icon {
+  font-size: 10.5px;
+  font-weight: 900;
+}
+.assignment-table .p-checkbox.p-disabled .p-checkbox-box {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+/* first column spacing */
+.assignment-table td:first-child,
+.assignment-table th:first-child {
+  padding-left: 6px;
+}
+/*  OVERLAY PANEL  */
+.p-overlaypanel {
+  width: 300px;
+  margin-top: 16px;
+
+  border-radius: 8px !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12) !important;
+}
+.p-overlaypanel:before,
+.p-overlaypanel:after {
+  display: none !important;
+}
+.overlay-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.overlay-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+.overlay-sub {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.overlay-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+.overlay-row .p-inputtext {
+  flex: 1;
+  height: 30px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+.overlay-row .p-button {
+  height: 30px;
+  font-size: 12px;
+  border-radius: 6px;
+  padding: 0 12px;
+  background: #4f6bed;
+  border: none;
+}
+
+.overlay-row .p-button:disabled {
+  background: #a5b4fc !important;
+}
+/*  HEADER SELECT  */
+.assignment-table th.select-header {
+  position: relative;
+  width: 42px;
+  padding: 0;
+}
+
+.assignment-table th.select-header .p-column-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+}
+.select-dropdown-icon {
+  font-size: 11px;
+  color: #929bac;
+  cursor: pointer;
+}
+
+.select-dropdown-icon:hover {
+  color: #374151;
+}
+.assignment-table th.select-header .select-dropdown-icon {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*  SELECTED ROW  */
+
+.assignment-table .p-datatable-tbody > tr.p-highlight {
+  background: #f2f6ff !important;
+}
+
+.assignment-table .p-datatable-tbody > tr.p-highlight:hover {
+  background: #e9f0ff !important;
+}
+
+.assignment-table .p-datatable-tbody > tr.p-highlight td {
+  color: #1f2a44;
+}
+/*  EXTRA TEXT  */
+.selected-info {
+  font-size: 11px;
+  margin-bottom: 13px;
+  color: #4b5563;
+}
+.selected-count {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.custom-page-text {
+  font-size: 12px;
+  color: #88909e;
+  font-weight: 400;
+}
+
+.custom-page-text .num {
+  color: #373b41;
+  font-weight: 600;
+}
+/*  LOADING  */
+.assignment-table .p-datatable-loading-overlay {
+  background: rgba(255,255,255,.9) !important;
+  backdrop-filter: blur(.5px);
+}
+
+.assignment-table .p-datatable-loading-wrapper {
+  background: transparent !important;
+}
+
+.assignment-table .p-datatable-loading-icon {
+  color: #2563eb !important;
+  font-size: 26px;
+}
