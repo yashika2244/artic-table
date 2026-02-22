@@ -5,7 +5,6 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { useArtworkTable } from "./hooks/useArtworkTable";
 import "./table.css";
-
 export default function App() {
   const {
     data,
@@ -23,7 +22,22 @@ export default function App() {
     handleCustomSelect,
     validNumber,
   } = useArtworkTable();
+  const renderLeft = (options: any) => {
+    const start = options.totalRecords === 0 ? 0 : options.first + 1;
 
+    const end =
+      options.totalRecords === 0
+        ? 0
+        : Math.min(options.first + options.rows, options.totalRecords);
+
+    return (
+      <span className="custom-page-text">
+        Showing <span className="num">{start}</span> to{" "}
+        <span className="num">{end}</span> of{" "}
+        <span className="num">{options.totalRecords}</span> entries
+      </span>
+    );
+  };
   return (
     <div className="container">
       {/* Selected rows info */}
@@ -40,7 +54,7 @@ export default function App() {
         totalRecords={totalRecords}
         loading={loading}
         first={(page - 1) * rows}
-        onPage={(e) => setPage(e.page + 1)}
+        onPage={(e) => setPage((e.page ?? 0) + 1)}
         selectionMode="multiple"
         selection={selectedRows}
         onSelectionChange={onSelectionChange}
@@ -49,22 +63,11 @@ export default function App() {
         scrollable
         scrollHeight="flex"
         paginatorTemplate="PrevPageLink PageLinks NextPageLink"
-        currentPageReportTemplate=""
-        paginatorLeft={(options) => {
-          const start = options.first + 1;
-          const end =
-            options.first + options.rows > options.totalRecords
-              ? options.totalRecords
-              : options.first + options.rows;
-
-          return (
-            <span className="custom-page-text">
-              Showing <span className="num">{start}</span> to{" "}
-              <span className="num">{end}</span> of{" "}
-              <span className="num">{options.totalRecords}</span> entries
-            </span>
-          );
-        }}
+        paginatorLeft={renderLeft({
+          first: (page - 1) * rows,
+          rows,
+          totalRecords,
+        })}
       >
         {/* Checkbox column */}
         <Column
